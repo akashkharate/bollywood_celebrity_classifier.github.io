@@ -128,7 +128,7 @@ public class Category {
             System.out.print("Enter new expense amount: ");
             double newAmount = scanner.nextDouble();
 
-            displayCategories(connection);
+//            displayCategories(connection);
 
             int newCategoryId = selectCategory(scanner, connection);
 
@@ -248,6 +248,11 @@ public class Category {
     }
 
     public static void addNewCategory(Scanner scanner, Connection connection) throws SQLException {
+        try {
+            displayCategories(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         System.out.print("Enter new category: ");
         String newCategory = scanner.next();
 
